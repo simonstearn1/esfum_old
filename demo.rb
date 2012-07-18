@@ -171,7 +171,7 @@ get '/logout' do
   # then we'd need to pull in Net::HTTP or somesuch)
   @access_token.get(ENV['LOGIN_SERVER']+'/services/oauth2/revoke?token='+session['access_token'])
   # Now save the logout_url
-  @logout_url = session['instance_url']+'/secur/logout.jsp'
+  @logout_url = session['instance_url']+'/secure/logout.jsp'
   # Clean up the session
   session['access_token'] = nil
   session['instance_url'] = nil

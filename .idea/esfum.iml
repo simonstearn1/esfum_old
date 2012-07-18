@@ -4,7 +4,19 @@
     <content url="file://$MODULE_DIR$" />
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" scope="PROVIDED" name="addressable (v2.2.6, RVM: ruby-1.8.7-p352 [global]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="bundler (v1.2.0.rc, RVM: ruby-1.8.7-p352 [global]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="dalli (v1.1.4, RVM: ruby-1.8.7-p352 [global]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="faraday (v0.7.6, RVM: ruby-1.8.7-p352 [global]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="json (v1.6.5, RVM: ruby-1.8.7-p352 [global]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="logger (v1.2.8, RVM: ruby-1.8.7-p352 [global]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="multi_json (v1.0.4, RVM: ruby-1.8.7-p352 [global]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="multipart-post (v1.1.4, RVM: ruby-1.8.7-p352 [global]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="oauth2 (v0.5.2, RVM: ruby-1.8.7-p352 [global]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="rack (v1.4.1, RVM: ruby-1.8.7-p352 [global]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="rack-protection (v1.2.0, RVM: ruby-1.8.7-p352 [global]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="sinatra (v1.3.2, RVM: ruby-1.8.7-p352 [global]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="tilt (v1.3.3, RVM: ruby-1.8.7-p352 [global]) [gem]" level="application" />
   </component>
 </module>
 
