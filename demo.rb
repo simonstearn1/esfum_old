@@ -86,8 +86,9 @@ get '/' do
   if !session['field_list']
     session['field_list'] = @access_token.get("#{@instance_url}/services/data/v21.0/sobjects/Account/describe/").parsed
   end
-  
-  @field_list = session['field_list']
+
+  @field_list = { :fish =>"chips" }
+  @field_list << session['field_list']
   
   if params[:value]
     query = "SELECT Name, Id FROM Account WHERE #{params[:field]} LIKE '#{params[:value]}%' ORDER BY Name LIMIT 20"
