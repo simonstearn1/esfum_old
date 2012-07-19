@@ -94,13 +94,13 @@ end
 get '/' do
   # Field list isn't very volatile - stash it in the session
 #  if !session['field_list']
-    puts "Fetching Field List"
-    session['field_list'] = @access_token.get("#{@instance_url}/services/data/v21.0/sobjects/Opportunity/describe/").parsed
+#    puts "Fetching Field List"
+#    session['field_list'] = @access_token.get("#{@instance_url}/services/data/v21.0/sobjects/Opportunity/describe/").parsed
 #  end
 
-  puts "Field list is:" + session['field_list'].to_s + "<END>"
+#  puts "Field list is:" + session['field_list'].to_s + "<END>"
 
-  @field_list = session['field_list']
+#  @field_list = session['field_list']
   
 
   query = "select Opportunity.Exony_Opportunity_ID__c, Opportunity.Name, StageName, Amount, CreatedDate, CreatedBy.Name from OpportunityHistory where Opportunity.Name = 'Bell - Bedrock Phase 1 (IBM CA)'"

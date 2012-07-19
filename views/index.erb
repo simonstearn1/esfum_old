@@ -6,18 +6,6 @@
     </head>
     <body>
 		<h2>Opportunities for <span id="displayname">User Name</span></h2>
-		<form action="/" method="get">
-		    <h3 style="display:inline;">Filter on</h3>
-			<select id="field" name="field">
-      		  <% @field_list['fields'].each do |field| %>
-                <% if field['type'] == 'string' %>
-				  <option value="<%= field['name'] %>"><%= field['label'] %></option>
-                <% end %>
-              <% end %>
-			</select>
-			<input type="text" id="value" name="value" />
-			<input type="submit" id="go" name="search" value="Search" />
-		</form>
 		<form action="/action" method="post">
 			<input type="submit" id="new" name="new" value="New" />
 		</form>
