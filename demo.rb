@@ -8,7 +8,7 @@ require 'rack/session/dalli' # For Rack sessions in Dalli
 
 $stdout.sync = true
 
-# Dalli is a Ruby client for memcache
+# Dalli is a Ruby client for memcached
 def dalli_client
   Dalli::Client.new(nil, :compression => true, :namespace => 'rack.session', :expires_in => 3600)
 end
