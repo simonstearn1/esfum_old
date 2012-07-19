@@ -50,7 +50,7 @@ before do
   @instance_url = session['instance_url']
 
   puts "I am:" + request.host + "<END>"
-  puts "talking to instance :" + @instance_url + "<END>"
+  puts "talking to instance :" + @instance_url + "<END>" unless @instance_url.nil?
   
   if token
     puts "There is a token "
