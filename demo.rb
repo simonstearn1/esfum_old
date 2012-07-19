@@ -49,6 +49,7 @@ before do
   refresh       = session['refresh_token']
   @instance_url = session['instance_url']
 
+  puts "I am:" + request.host + "<END>"
   puts "talking to instance :" + @instance_url + "<END>"
   
   if token
