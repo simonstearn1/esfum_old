@@ -56,6 +56,7 @@ before do
   else
     puts "No Token, or error !"
     puts "errorCode == \"" + token['errorCode'].to_s + "\""
+    puts "Setting redirect url to: https://#{request.host}/oauth/callback"
     redirect oauth2_client.auth_code.authorize_url(:redirect_uri => "https://#{request.host}/oauth/callback")
   end  
 end
