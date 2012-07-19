@@ -87,6 +87,8 @@ get '/' do
     session['field_list'] = @access_token.get("#{@instance_url}/services/data/v21.0/sobjects/Account/describe/").parsed
   end
 
+  puts session['field_list'].to_s
+
   @field_list = session['field_list']
   
   if params[:value]
