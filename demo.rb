@@ -52,7 +52,7 @@ before do
   puts "I am:" + request.host + "<END>"
   puts "talking to instance :" + @instance_url + "<END>" unless @instance_url.nil?
   
-  if token
+  if token && !@instance_url.nil?
     puts "There is a token "
     puts token.to_s
     puts "errorCode == \"" + token["errorCode"].to_s + "\""
