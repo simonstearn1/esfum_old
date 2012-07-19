@@ -93,10 +93,10 @@ end
 
 get '/' do
   # Field list isn't very volatile - stash it in the session
-  if !session['field_list']
+#  if !session['field_list']
     puts "Fetching Field List"
     session['field_list'] = @access_token.get("#{@instance_url}/services/data/v21.0/sobjects/Account/describe/").parsed
-  end
+#  end
 
   puts "Field list is:" + session['field_list'].to_s + "<END>"
 
