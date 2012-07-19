@@ -108,7 +108,7 @@ get '/' do
   puts "Running query"
   @opportunities = @access_token.get("#{@instance_url}/services/data/v20.0/query/?q=#{CGI::escape(query)}").parsed
 
-  puts "There are "+ @opportunities['records'].count.to_s +" Opportunity Edits"
+  puts "There are "+ @opportunities['records'].count.to_s + " Opportunity Edits"
 
   puts "Invoking Renderer"
   erb :index
