@@ -95,28 +95,25 @@ get '/' do
   # Field list isn't very volatile - stash it in the session
 #  if !session['field_list']
     puts "Fetching Field List"
-    session['field_list'] = @access_token.get("#{@instance_url}/services/data/v21.0/sobjects/Account/describe/").parsed
+    session['field_list'] = @access_token.get("#{@instance_url}/services/data/v21.0/sobjects/Opportunity/describe/").parsed
 #  end
 
   puts "Field list is:" + session['field_list'].to_s + "<END>"
 
   @field_list = session['field_list']
   
-  if params[:value]
-    query = "SELECT Name, Id FROM Account WHERE #{params[:field]} LIKE '#{params[:value]}%' ORDER BY Name LIMIT 20"
-  else
-    query = "SELECT Name, Id from Account ORDER BY Name LIMIT 20"
-  end
+
+  query = "select Opportunity.Exony_Opportunity_ID__c, Opportunity.Name, StageName, Amount, CreatedDate, CreatedBy.Name from OpportunityHistory where Opportunity.Name = 'Bell - Bedrock Phase 1 (IBM CA)'"
 
   puts "Running query"
-  @accounts = @access_token.get("#{@instance_url}/services/data/v20.0/query/?q=#{CGI::escape(query)}").parsed
+  @opportunities = @access_token.get("#{@instance_url}/services/data/v20.0/query/?q=#{CGI::escape(query)}").parsed
 
   puts "Invoking Renderer"
   erb :index
 end
 
 get '/detail' do
-  @account = @access_token.get("#{@instance_url}/services/data/v20.0/sobjects/Account/#{params[:id]}").parsed
+  @opportunity = @access_token.get("#{@instance_url}/services/data/v20.0/sobjects/Opportunity/#{params[:id]}").parsed
   
   erb :detail
 end
@@ -126,21 +123,21 @@ post '/action' do
     @action_name = 'create'
     @action_value = 'Create'
     
-    @account = Hash.new
-    @account['Id'] = ''
-    @account['Name'] = ''
-    @account['Industry'] = ''
-    @account['TickerSymbol'] = ''
+    @opportunity = Hash.new
+    @opportunity['Id'] = ''
+    @opportunity['Name'] = ''
+    @opportunity['Industry'] = ''
+    @opportunity['TickerSymbol'] = ''
 
     done = :edit
   elsif params[:edit]
-    @account = @access_token.get("#{@instance_url}/services/data/v20.0/sobjects/Account/#{params[:id]}").parsed
+    @opportunity = @access_token.get("#{@instance_url}/services/data/v20.0/sobjects/Opportunity/#{params[:id]}").parsed
     @action_name = 'update'
     @action_value = 'Update'
 
     done = :edit
   elsif params[:delete]
-    @access_token.delete("#{@instance_url}/services/data/v20.0/sobjects/Account/#{params[:id]}")
+    @access_token.delete("#{@instance_url}/services/data/v20.0/sobjects/Opportunity/#{params[:id]}")
     @action_value = 'Deleted'
     
     @result = Hash.new
@@ -152,13 +149,13 @@ post '/action' do
   erb done
 end
 
-post '/account' do
+post '/opportunity' do
   if params[:create]
     body = {"Name"   => params[:Name], 
       "Industry"     => params[:Industry], 
       "TickerSymbol" => params[:TickerSymbol]}.to_json
 
-    @result = @access_token.post("#{@instance_url}/services/data/v20.0/sobjects/Account/", 
+    @result = @access_token.post("#{@instance_url}/services/data/v20.0/sobjects/Opportunity/",
       {:body => body, 
        :headers => {'Content-type' => 'application/json'}}).parsed
     @action_value = 'Created'
@@ -168,7 +165,7 @@ post '/account' do
       "TickerSymbol" => params[:TickerSymbol]}.to_json
 
     # No response for an update
-    @access_token.post("#{@instance_url}/services/data/v20.0/sobjects/Account/#{params[:id]}?_HttpMethod=PATCH", 
+    @access_token.post("#{@instance_url}/services/data/v20.0/sobjects/Opportunity/#{params[:id]}?_HttpMethod=PATCH",
       {:body => body, 
        :headers => {'Content-type' => 'application/json'}})
     @action_value = 'Updated'

@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Account Detail</title>
+    <title>Opportunity Detail</title>
     <link href="/stylesheets/style.css" rel="stylesheet" type="text/css" />
   </head>
   <body>
-  	<h1>Account Detail</h1>
+  	<h1>Opportunity Detail</h1>
   	<table>
-  		<tr><td>Account Name:</td><td id="accountname"><%= @account['Name'] %></td></tr>
-  	 	<tr><td>Industry:</td><td><a id="industry" href="/?field=Industry&amp;value=<%= @account['Industry'] %>&amp;search=Search"><%= @account['Industry'] %></a></td></tr>
-  		<tr><td>Ticker Symbol:</td><td id="tickersymbol"><%= @account['TickerSymbol'] %></td></tr>
+  		<tr><td>Opportunity Name:</td><td id="opportunityname"><%= @opportunity['Name'] %></td></tr>
+  	 	<tr><td>Stage:</td><td><a id="stage" href="/?field=Industry&amp;value=<%= @opportunity['StageName'] %>&amp;search=Search"><%= @opportunity['StageName'] %></a></td></tr>
+  		<tr><td>Exony Opportunity Id:</td><td id="tickersymbol"><%= @opportunity['Exony_Opportunity_ID__c'] %></td></tr>
   	</table>
   	<form action="/action" method="post">
-  		<input type="hidden" name="id" id="id" value="<%= @account['Id'] %>" />
+  		<input type="hidden" name="id" id="id" value="<%= @opportunity['Id'] %>" />
   		<input type="submit" id="delete" name="delete" value="Delete" />
   		<input type="submit" id="edit" name="edit" value="Edit" />
   	</form>

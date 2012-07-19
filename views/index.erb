@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Account List</title>
+        <title>Opportunity List</title>
 		<link href="/stylesheets/style.css" rel="stylesheet" type="text/css" />
     </head>
     <body>
-		<h2>Accounts for <span id="displayname">User Name</span></h2>
+		<h2>Opportunities for <span id="displayname">User Name</span></h2>
 		<form action="/" method="get">
 		    <h3 style="display:inline;">Filter on</h3>
 			<select id="field" name="field">
@@ -22,12 +22,12 @@
 			<input type="submit" id="new" name="new" value="New" />
 		</form>
 		<table class="accountlist">
-		  <% if @accounts && @accounts['records'] %>
-		    <% @accounts['records'].each do |record| %>
+		  <% if @opportunities && @opportunities['records'] %>
+		    <% @opportunities['records'].each do |record| %>
 			    <tr><td><a href="detail?id=<%= record['Id'] %>"><%= record['Name'] %></a></td></tr>
         <% end %>
       <% else %>
-		    <%= @accounts.inspect %>
+		    <%= @opportunities.inspect %>
       <% end %>
 		</table>
 		<br/>
