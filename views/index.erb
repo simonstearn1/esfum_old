@@ -11,7 +11,7 @@
 			<select id="field" name="field">
       		  <% @field_list['fields'].each do |field| %>
                 <% if field['type'] == 'string' %>
-				  <comment <option value="<%= field['name'] %>"><%= field['label'] %></option>     >
+				  <option value="<%= field['name'] %>"><%= field['label'] %></option>
                 <% end %>
               <% end %>
 			</select>
