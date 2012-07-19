@@ -30,6 +30,6 @@ DEPENDENCIES
   dalli
   json
   logger
-  oauth2 (= 0.5.2)
+  oauth2
   rack
   sinatra
