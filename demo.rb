@@ -108,6 +108,8 @@ get '/' do
   puts "Running query"
   @opportunities = @access_token.get("#{@instance_url}/services/data/v20.0/query/?q=#{CGI::escape(query)}").parsed
 
+  puts @opportunities.to_s
+
   puts "Invoking Renderer"
   erb :index
 end

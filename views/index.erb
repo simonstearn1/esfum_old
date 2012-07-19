@@ -9,7 +9,7 @@
 		<form action="/action" method="post">
 			<input type="submit" id="new" name="new" value="New" />
 		</form>
-		<table class="accountlist">
+		<table class="opportunitylist">
 		  <% if @opportunities && @opportunities['records'] %>
 		    <% @opportunities['records'].each do |record| %>
 			    <tr><td><a href="detail?id=<%= record['Id'] %>"><%= record['Name'] %></a></td></tr>
