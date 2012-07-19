@@ -49,7 +49,7 @@ before do
   refresh       = session['refresh_token']
   @instance_url = session['instance_url']
   
-  if token && !token.expired?
+  if token
     puts "There is a token "
     puts token.to_s
     puts "errorCode == \"" + token['errorCode'].to_s + "\""
