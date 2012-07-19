@@ -94,10 +94,11 @@ end
 get '/' do
   # Field list isn't very volatile - stash it in the session
   if !session['field_list']
+    puts "Fetching Field List"
     session['field_list'] = @access_token.get("#{@instance_url}/services/data/v21.0/sobjects/Account/describe/").parsed
   end
 
-  puts session['field_list'].to_s
+  puts "Field list is:" + session['field_list'].to_s + "<END>"
 
   @field_list = session['field_list']
   
@@ -106,9 +107,11 @@ get '/' do
   else
     query = "SELECT Name, Id from Account ORDER BY Name LIMIT 20"
   end
-  
+
+  puts "Running query"
   @accounts = @access_token.get("#{@instance_url}/services/data/v20.0/query/?q=#{CGI::escape(query)}").parsed
-  
+
+  puts "Invoking Renderer"
   erb :index
 end
 
