@@ -50,11 +50,12 @@ before do
   @instance_url = session['instance_url']
   
   if token && token['errorCode'] == ""
-    print "There is a token "
-    print token.to_s
+    puts "There is a token "
+    puts token.to_s
     @access_token = ForceToken.from_hash(oauth2_client, { :access_token => token, :refresh_token =>  refresh, :header_format => 'OAuth %s' } )
   else
-    puts "No Token !"
+    puts "No Token, or error !"
+    puts "errorCode == " +token['errorCode'].to_s
     redirect oauth2_client.auth_code.authorize_url(:redirect_uri => "https://#{request.host}/oauth/callback")
   end  
 end
