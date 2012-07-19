@@ -1,7 +1,7 @@
 source 'http://rubygems.org'
-ruby "1.8.7"
+ruby "1.9.2"
 gem 'sinatra'
-gem 'oauth2', "0.5.2"
+gem 'oauth2'
 gem 'json'
 gem 'dalli'
 gem 'rack'
