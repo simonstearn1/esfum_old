@@ -52,6 +52,7 @@ before do
   if token
     puts "There is a token "
     puts token.to_s
+    puts "errorCode == \"" + token['errorCode'].to_s + "\""
     @access_token = ForceToken.from_hash(oauth2_client, { :access_token => token, :refresh_token =>  refresh, :header_format => 'OAuth %s' } )
   else
     puts "No Token, or error !"
