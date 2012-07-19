@@ -50,8 +50,10 @@ before do
   @instance_url = session['instance_url']
   
   if token
+    puts "There is a token " + token.to_s
     @access_token = ForceToken.from_hash(oauth2_client, { :access_token => token, :refresh_token =>  refresh, :header_format => 'OAuth %s' } )
   else
+    puts "No Token !"
     redirect oauth2_client.auth_code.authorize_url(:redirect_uri => "https://#{request.host}/oauth/callback")
   end  
 end
