@@ -49,7 +49,7 @@ before do
   refresh       = session['refresh_token']
   @instance_url = session['instance_url']
   
-  if token && token['errorCode'] != "URL_NOT_RESET"
+  if token
     puts "There is a token "
     puts token.to_s
     @access_token = ForceToken.from_hash(oauth2_client, { :access_token => token, :refresh_token =>  refresh, :header_format => 'OAuth %s' } )
