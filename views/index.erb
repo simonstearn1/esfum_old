@@ -84,10 +84,10 @@
       <% @data.each do |record| %>
       <tr>
         <th scope="row">
-          <% record[0].to_s %>
+          <%= record[0].to_s %>
         </th>
         <td>
-          <% record[1].to_s %>
+          <%= record[1].to_s %>
         </td>
       </tr>
       <% end %>
@@ -101,7 +101,7 @@
   </div>
   <div class="footer demo-description">
     <p>
-      Data taken from salesforce.com at <% DateTime.now().to_s %>. </p>
+      Data taken from salesforce.com at <%= DateTime.now().to_s %>. </p>
   </div>
 </div>
 
