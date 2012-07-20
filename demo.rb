@@ -124,7 +124,7 @@ get '/' do
   resultset.sort!
 
   # Aggregate array to count all data entries for each date
-  @data=[]
+  aggregated=[]
   lastdate=nil
   count=0
 
@@ -135,7 +135,7 @@ get '/' do
     end
 
     if lastdate != record[0]
-      @data << [lastdate, count]
+      aggregated.push [lastdate, count]
       lastdate = record[0]
       count = 1
     else
@@ -144,8 +144,29 @@ get '/' do
 
   end
 
-  if @data.empty? || lastdate !=  resultset[-1][0]
-    @data << [lastdate, count]
+  if aggregated.empty? || lastdate !=  resultset[-1][0]
+    aggregated.push [lastdate, count]
+  end
+
+  # Now flatten the time series
+
+  @data = []
+  lastdate = nil # horrible defensive coding by old infirm man
+
+  aggregated.each do | record |
+
+    if @data = []
+      @data.push record
+      lastdate = record[0]
+    else
+      if record[0] != lastdate + 1
+        lastdate += 1
+        while lastdate < record[0]
+          @data.push [lastdate, 0]
+          lastdate += 1
+        end
+      end
+      @data.push record
   end
 
   # Send it to the web
