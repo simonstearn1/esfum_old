@@ -83,9 +83,9 @@
       </thead>
 
       <tbody>
-      <% today = @earliest_date
-         end_date = Date.new(Time.now.year, Time.now.month, Time.now.day)
+      <% end_date = Date.new(Time.now.year, Time.now.month, Time.now.day)
          @user_list.each do | user |
+           today = @earliest_date
            while (today <= end_date)  do
              record = @data[[today, user]] %>
               <tr>
