@@ -128,7 +128,7 @@ get '/' do
 
   puts "User List is:" + @user_list.to_s
   puts "Earliest record is " + @earliest_date.to_s + "."
-  puts "There are " + total.to_s +" updates in the window."
+  puts "There are " + total.to_s + " updates in the window."
   puts "This is the data :"+ @data.to_s + "<END>"
 
 
