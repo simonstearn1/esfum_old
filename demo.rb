@@ -119,7 +119,7 @@ get '/' do
     @data[[record[0], record[1]]] += 1
     @earliest_date = record[0] unless @earliest_date < record[0]
   end
-  puts "Earliest record is " + @earliest_date
+  puts "Earliest record is " + @earliest_date.to_s
   puts "This is the data :"+ @data.to_s + "<END>"
 
 
