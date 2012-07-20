@@ -20,6 +20,10 @@
   <script src="javascripts/jquery.wijmo.wijlinechart.min.js" type="text/javascript"></script>
   <script id="scriptInit" type="text/javascript">
       $(document).ready(function () {
+          $('#themes').change(function () {
+              $("link[title='rocket-jqueryui']").attr("href", $(this).val());
+          }).wijdropdown();
+
           $("#opportunityListChart").wijlinechart({
               showChartLabels: false,
               hint: {
@@ -62,19 +66,6 @@
                   <% first_entry = false
                      end %>
               ],
-
-//              seriesStyles: [
-//                  { stroke: "#00A0B0", "stroke-width": 3 },
-//                  { stroke: "#CC333F", "stroke-width": 3 },
-//                  { stroke: "#EB6841", "stroke-width": 3 },
-//                  { stroke: "#EDC951", "stroke-width": 3 }
-//              ],
-//              seriesHoverStyles: [
-//                  { "stroke-width": 4 },
-//                  { "stroke-width": 4 },
-//                  { "stroke-width": 4 },
-//                  { "stroke-width": 4 }
-//              ],
               axis: {
                   y: {
                   },
