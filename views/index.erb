@@ -23,9 +23,8 @@
           $("#opportunityListChart").wijlinechart({
               showChartLabels: false,
               hint: {
-                  title: "Have a look",
                   content: function () {
-                      return this.y + " on " + this.x.toString('yyyy-MM-dd');;
+                      return this.y + " on " + this.x.toString('yyyy-MM-dd');
                   },
                   offsetY: -10
               },
