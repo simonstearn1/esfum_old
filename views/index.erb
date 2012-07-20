@@ -31,10 +31,11 @@
               header: {
                   text: "Opportunity Edits by User"
               },
+          <% first_entry = true %>
+
               seriesList: [
-                  <% first_entry = true
-                    end_date = Date.new(Time.now.year, Time.now.month, Time.now.day)
-                    @user_list.each do | user |     %>
+            <% end_date = Date.new(Time.now.year, Time.now.month, Time.now.day)
+               @user_list.each do | user |     %>
                     <%= "," unless first_entry %>
                   {
                       label: "<%=user.to_s%>",
@@ -56,7 +57,7 @@
                                       visible: true,
                                       type: "circle"
                                   }
-                              },
+                              }
 
                   <% first_entry = false
                      end %>
@@ -140,8 +141,7 @@
 <div id="opportunityListChart" class="ui-widget ui-widget-content ui-corner-all" style="width: 800px; height: 600px"></div>
 <div class="container">
   <div class="header">
-    <h2>
-      Opportunity Edits</h2>
+    <h2>Daily Summary Table</h2>
   </div>
   <div class="main demo">
     <!-- Begin main markup -->
