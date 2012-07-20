@@ -86,7 +86,7 @@
          end_date = Date.new(Time.now.year, Time.now.month, Time.now.day)
          while (today <= end_date)  do
            @user_list.each do | user |
-             record = @data[today, user] %>
+             record = @data[[today, user]] %>
               <tr>
                 <th scope="row">
                   <%= today.to_s %>
