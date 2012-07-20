@@ -114,14 +114,14 @@ get '/' do
   # Build a hash by date and user
   @data = Hash.new(0)
   @user_list = []
-  @earliest_date = Date.parse("2200-01-01")
+  @earliest_date = Date.parse("2200-01-01").to_s
   total = 0
 
   resultset.each do | record |
     @data[[record[0], record[1]]] += 1
     total += 1
     @user_list.push record[1] unless @user_list.find_index(record[1])
-    @earliest_date = Date.parse(record[0]) unless @earliest_date < record[0]
+    @earliest_date = record[0] unless @earliest_date < record[0]
   end
 
   @user_list.sort!
