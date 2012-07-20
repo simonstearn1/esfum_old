@@ -155,7 +155,7 @@ get '/' do
 
   aggregated.each do | record |
 
-    if @data = []
+    if @data == []
       puts "Initialising flattener:" + record[0].to_s + "<END>"
       @data.push record
     else
