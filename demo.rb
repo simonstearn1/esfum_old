@@ -117,6 +117,9 @@ get '/' do
 
   # New approach
   @data = Hash.new(0)
+  @data[['earliest']]=resultset[0][0]
+
+  puts "Earliest record is " + @data[['earliest']].to_s
   resultset.each do | record |
     @data[[record[0], record[1]]] += 1
   end
