@@ -113,13 +113,13 @@ get '/' do
 
   # Build a hash by text-date and user
   @data = Hash.new(0)
-  @earliestDate = '2200-01-01'
+  @earliest_date = "2200-01-01"
 
   resultset.each do | record |
     @data[[record[0], record[1]]] += 1
-    @earliestDate = record[0] unless @earliestDate < record[0]
+    @earliest_date = record[0] unless @earliest_date < record[0]
   end
-  puts "Earliest record is " + @earliestDate
+  puts "Earliest record is " + @earliest_date
   puts "This is the data :"+ @data.to_s + "<END>"
 
 
