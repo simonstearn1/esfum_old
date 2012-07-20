@@ -80,17 +80,19 @@
       </tr>
       </thead>
 
-      <% @data.each do |record| %>
       <tbody>
+      <% @data.each do |record| %>
       <tr>
         <th scope="row">
           <% record[0] %>
         </th>
-        <th scope="row">
+        <td>
           <% record[1] %>
-        </th>
+        </td>
       </tr>
-
+      <% end %>
+      </tbody>
+    </table>
     <!-- End  markup -->
     <div class="demo-options">
       <!-- Begin options markup -->
@@ -99,7 +101,7 @@
   </div>
   <div class="footer demo-description">
     <p>
-      This sample demonstrates how to use a table as a data source to draw an area chart. It's as easy as creating a table with rows and headers and then setting the table's ID property to the ID of the wijlinechart widget. </p>
+      Data taken from salesforce.com at <% Date.now()%>. </p>
   </div>
 </div>
 
