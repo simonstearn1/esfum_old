@@ -131,59 +131,14 @@ get '/' do
   puts "There are " + total.to_s + " updates in the window."
   puts "This is the data :"+ @data.to_s + "<END>"
 
-  total = 0
-  @data.each do  | record |
-    total += record[1]
-  end
-  puts "It sez here there are " + total.to_s + " updates in the window."
+  # Debug code to test output
+  #
+  #total = 0
+  #@data.each do  | record |
+  #  total += record[1]
+  #end
+  #puts "It sez here there are " + total.to_s + " updates in the window."
 
-  # Aggregate array to count all data entries for each date
-  aggregated=[]
-  lastdate=nil
-  count=0
-
-  resultset.each do | record |
-
-    if lastdate == nil
-      lastdate=record[0]
-    end
-
-    if lastdate != record[0]
-      aggregated.push [lastdate, count]
-      lastdate = record[0]
-      count = 1
-    else
-      count += 1
-    end
-
-  end
-
-  if aggregated.empty? || lastdate !=  resultset[-1][0]
-    aggregated.push [lastdate, count]
-  end
-
-  # Now flatten the time series
-
-  @data = []
-  lastdate = nil # horrible defensive coding by old infirm man
-
-  aggregated.each do | record |
-
-    if @data == []
-      puts "Initialising flattener:" + record[0].to_s + "<END>"
-      @data.push record
-    else
-      if record[0] != lastdate + 1
-        lastdate += 1
-        while lastdate < record[0]
-          @data.push [lastdate, 0]
-          lastdate += 1
-        end
-      end
-      @data.push record
-    end
-    lastdate = record[0]
-  end
 
   # Send it to the web
   puts "Invoking Renderer"
