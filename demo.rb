@@ -93,20 +93,9 @@ get '/oauth/callback' do
 end
 
 get '/' do
-  # Field list isn't very volatile - stash it in the session
-#  if !session['field_list']
-#    puts "Fetching Field List"
-#    session['field_list'] = @access_token.get("#{@instance_url}/services/data/v21.0/sobjects/Opportunity/describe/").parsed
-#  end
-
-#  puts "Field list is:" + session['field_list'].to_s + "<END>"
-
-#  @field_list = session['field_list']
-  
 
 #  query = "select Opportunity.Exony_Opportunity_ID__c, Opportunity.Name, StageName, Amount, CreatedDate, CreatedBy.Name from OpportunityHistory where Opportunity.Name = 'Bell - Bedrock Phase 1 (IBM CA)'"
-
-  query = "select Opportunity.Exony_Opportunity_ID__c, Opportunity.Name, StageName, Amount, CreatedDate, CreatedBy.Name from OpportunityHistory where CreatedDate > 2011-10-01T01:00:00Z"
+  query = "select Opportunity.Exony_Opportunity_ID__c, Opportunity.Name, StageName, Amount, CreatedDate, CreatedBy.Name from OpportunityHistory where CreatedDate > LAST_N_QUARTERS:4"
   puts "Running query"
   @opportunities = @access_token.get("#{@instance_url}/services/data/v20.0/query/?q=#{CGI::escape(query)}").parsed
 
@@ -123,6 +112,17 @@ get '/' do
 
   end
   resultset.sort!
+
+
+
+  # New approach
+  @data = Hash.new(0)
+  resultset.each do | record |
+    @data[[record[0], record[1]]] += 1
+  end
+
+  puts @data.to_s
+
 
   # Aggregate array to count all data entries for each date
   aggregated=[]
