@@ -113,12 +113,16 @@ get '/' do
 
   # Build a hash by date and user
   @data = Hash.new(0)
+  @user_list = []
   @earliest_date = Date.parse("2200-01-01")
 
   resultset.each do | record |
     @data[[record[0], record[1]]] += 1
+    @user_list.push record[1] unless @user_list.find_index(record[1])
     @earliest_date = record[0] unless @earliest_date < record[0]
   end
+
+  puts "User List is:" + @user_list.to_s
   puts "Earliest record is " + @earliest_date.to_s
   puts "This is the data :"+ @data.to_s + "<END>"
 
