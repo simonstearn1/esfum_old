@@ -111,9 +111,9 @@ get '/' do
   end
   puts "We have:" + resultset.to_s + "<END>"
 
-  # Build a hash by text-date and user
+  # Build a hash by date and user
   @data = Hash.new(0)
-  @earliest_date = "2200-01-01"
+  @earliest_date = Date.parse("2200-01-01")
 
   resultset.each do | record |
     @data[[record[0], record[1]]] += 1
