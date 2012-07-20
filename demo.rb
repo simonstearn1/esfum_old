@@ -131,6 +131,11 @@ get '/' do
   puts "There are " + total.to_s + " updates in the window."
   puts "This is the data :"+ @data.to_s + "<END>"
 
+  total = 0
+  @data.each do  | record |
+    total += record
+  end
+  puts "It sez here there are " + total.to_s + " updates in the window."
 
   # Aggregate array to count all data entries for each date
   aggregated=[]
