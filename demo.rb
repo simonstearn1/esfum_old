@@ -156,8 +156,8 @@ get '/' do
   aggregated.each do | record |
 
     if @data = []
+      puts "Initialising flattener:" + record[0].to_s + "<END>"
       @data.push record
-      lastdate = record[0]
     else
       if record[0] != lastdate + 1
         lastdate += 1
@@ -168,6 +168,7 @@ get '/' do
       end
       @data.push record
     end
+    lastdate = record[0]
   end
 
   # Send it to the web
