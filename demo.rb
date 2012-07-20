@@ -104,8 +104,9 @@ get '/' do
 #  @field_list = session['field_list']
   
 
-  query = "select Opportunity.Exony_Opportunity_ID__c, Opportunity.Name, StageName, Amount, CreatedDate, CreatedBy.Name from OpportunityHistory where Opportunity.Name = 'Bell - Bedrock Phase 1 (IBM CA)'"
+#  query = "select Opportunity.Exony_Opportunity_ID__c, Opportunity.Name, StageName, Amount, CreatedDate, CreatedBy.Name from OpportunityHistory where Opportunity.Name = 'Bell - Bedrock Phase 1 (IBM CA)'"
 
+  query = "select Opportunity.Exony_Opportunity_ID__c, Opportunity.Name, StageName, Amount, CreatedDate, CreatedBy.Name from OpportunityHistory where CreatedDate > 2011-10-01T01:00:00Z"
   puts "Running query"
   @opportunities = @access_token.get("#{@instance_url}/services/data/v20.0/query/?q=#{CGI::escape(query)}").parsed
 
