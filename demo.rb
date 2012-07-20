@@ -121,7 +121,7 @@ get '/' do
     @data[[record[0], record[1]]] += 1
   end
 
-  puts @data.to_s
+  puts "This is the data :"+ @data.to_s + "<END>"
 
 
   # Aggregate array to count all data entries for each date
