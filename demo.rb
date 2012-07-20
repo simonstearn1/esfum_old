@@ -133,7 +133,7 @@ get '/' do
 
   total = 0
   @data.each do  | record |
-    total += record
+    total += record[1]
   end
   puts "It sez here there are " + total.to_s + " updates in the window."
 
