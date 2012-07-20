@@ -139,6 +139,17 @@ get '/' do
   #end
   #puts "It sez here there are " + total.to_s + " updates in the window."
 
+  # Prepare easy to consume strings
+
+  end_date = Date.new(Time.now.year, Time.now.month, Time.now.day)
+  today = @earliest_date + 1
+  @date_list = "new Date(\"" + @earliest_date.to_s + "\")"
+  while (today <= end_date)  do
+    @date_list += ", new Date(\"" + today.to_s + "\")"
+    today += 1
+  end
+
+  puts "Javascript date list:" + @date_list + "<END>"
 
   # Send it to the web
   puts "Invoking Renderer"

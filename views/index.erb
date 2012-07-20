@@ -19,7 +19,7 @@
   <script src="javascripts/jquery.wijmo.wijlinechart.min.js" type="text/javascript"></script>
   <script id="scriptInit" type="text/javascript">
       $(document).ready(function () {
-          $("#opportunitylist").wijlinechart({ width: 756, height: 475,
+          $("#opportunitylistChart").wijlinechart({ width: 756, height: 475,
               type: "area",
               showChartLabels: false,
               hint: {
@@ -28,18 +28,49 @@
                   },
                   offsetY: -10
               },
-              seriesStyles: [
-                  { stroke: "#00A0B0", "stroke-width": 3 },
-                  { stroke: "#CC333F", "stroke-width": 3 },
-                  { stroke: "#EB6841", "stroke-width": 3 },
-                  { stroke: "#EDC951", "stroke-width": 3 }
+              seriesList: [
+                  <% first_entry = true
+                    end_date = Date.new(Time.now.year, Time.now.month, Time.now.day)
+                    @user_list.each do | user |     %>
+                    <%= "," unless first_entry %>
+                  {
+                      label: "<%=user.to_s%>",
+                      legendEntry: true,
+                      data: {
+                          x: [<%= @date_list %>],
+                          y: [
+                          <%  today = @earliest_date  %>
+                          <%= @data[[today, user]].to_s %>
+                          <%  today += 1
+                              while (today <= end_date)  do  %>
+                                  ,
+                            <%= @data[[today, user]].to_s %>
+                            <%  today += 1
+                              end           %>
+                                      ]
+                                  },
+                                  markers: {
+                                      visible: true,
+                                      type: "circle"
+                                  }
+                              },
+
+                  <% first_entry = false
+                     end %>
               ],
-              seriesHoverStyles: [
-                  { "stroke-width": 4 },
-                  { "stroke-width": 4 },
-                  { "stroke-width": 4 },
-                  { "stroke-width": 4 }
-              ],
+
+//              seriesStyles: [
+//                  { stroke: "#00A0B0", "stroke-width": 3 },
+//                  { stroke: "#CC333F", "stroke-width": 3 },
+//                  { stroke: "#EB6841", "stroke-width": 3 },
+//                  { stroke: "#EDC951", "stroke-width": 3 }
+//              ],
+//              seriesHoverStyles: [
+//                  { "stroke-width": 4 },
+//                  { "stroke-width": 4 },
+//                  { "stroke-width": 4 },
+//                  { "stroke-width": 4 }
+//              ],
               axis: {
                   y: {
                   },
