@@ -35,7 +35,11 @@
               showChartLabels: false,
               hint: {
                   content: function () {
-                      return this.y + " on " + this.x.toString('yyyy-MM-dd');
+                      return this.data.lineSeries.label + '\n' +
+                              this.x + '\n' + this.y + '';
+                  },
+                  contentStyle: {
+                      "font-size": 10
                   },
                   offsetY: -10
               },
