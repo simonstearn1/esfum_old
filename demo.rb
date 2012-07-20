@@ -1,4 +1,4 @@
-require 'Date'
+require 'date'
 require 'rubygems'
 require 'sinatra'
 require 'oauth2'
