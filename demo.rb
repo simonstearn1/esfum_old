@@ -167,6 +167,7 @@ get '/' do
         end
       end
       @data.push record
+    end
   end
 
   # Send it to the web
