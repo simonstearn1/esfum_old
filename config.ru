@@ -1,2 +1,2 @@
-require './demo'
+require './esfum'
 run Sinatra::Application
