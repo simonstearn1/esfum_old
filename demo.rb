@@ -109,19 +109,17 @@ get '/' do
     resultset.push [Date.strptime(opportunity["CreatedDate"], "%Y-%m-%d"), opportunity['CreatedBy']['Name']]
 
   end
-  resultset.sort!
   puts "We have:" + resultset.to_s + "<END>"
 
-
-  # New approach
+  # Build a hash by text-date and user
   @data = Hash.new(0)
-  @data[['earliest']]=resultset[0][0]
+  @earliestDate = '2200-01-01'
 
-  puts "Earliest record is " + @data[['earliest']].to_s
   resultset.each do | record |
     @data[[record[0], record[1]]] += 1
+    @earliestDate = record[0] unless @earliestDate < record[0]
   end
-
+  puts "Earliest record is " + @earliestDate
   puts "This is the data :"+ @data.to_s + "<END>"
 
 
