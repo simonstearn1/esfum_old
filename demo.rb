@@ -121,7 +121,7 @@ get '/' do
     @data[[record[0], record[1]]] += 1
     total += 1
     @user_list.push record[1] unless @user_list.find_index(record[1])
-    @earliest_date = record[0] unless @earliest_date < record[0]
+    @earliest_date = Date.parse(record[0]) unless @earliest_date < record[0]
   end
 
   @user_list.sort!
