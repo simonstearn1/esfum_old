@@ -18,11 +18,18 @@
   <script src="javascripts/jquery.wijmo.raphael.min.js" type="text/javascript"></script>
   <script src="javascripts/jquery.wijmo.wijchartcore.min.js" type="text/javascript"></script>
   <script src="javascripts/jquery.wijmo.wijlinechart.min.js" type="text/javascript"></script>
+
+  <!--Sample CSS-->
+  <link rel="stylesheet" type="text/css" href="stylesheets/style.css" />
+
+
   <script id="scriptInit" type="text/javascript">
       $(document).ready(function () {
-//          $('#themes').change(function () {
-//              $("link[title='rocket-jqueryui']").attr("href", $(this).val());
-//          }).wijdropdown();
+
+
+          $('#themes').change(function () {
+              $("link[title='rocket-jqueryui']").attr("href", $(this).val());
+          }).wijdropdown();
 
           $("#opportunityListChart").wijlinechart({
               showChartLabels: false,
