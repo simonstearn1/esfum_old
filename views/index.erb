@@ -19,14 +19,16 @@
   <script src="javascripts/jquery.wijmo.wijlinechart.min.js" type="text/javascript"></script>
   <script id="scriptInit" type="text/javascript">
       $(document).ready(function () {
-          $("#opportunitylistChart").wijlinechart({ width: 756, height: 475,
-              type: "area",
+          $("#opportunityListChart").wijlinechart({
               showChartLabels: false,
               hint: {
                   content: function () {
                       return this.y;
                   },
                   offsetY: -10
+              },
+              header: {
+                  text: "Opportunity Edits by User"
               },
               seriesList: [
                   <% first_entry = true
@@ -88,7 +90,7 @@
   </script>
 </head>
 <body class="demo-single">
-<div id="opportunityListChart" class="ui-widget ui-widget-content ui-corner-all" style="width: 400px; height: 300px"></div>
+<div id="opportunityListChart" class="ui-widget ui-widget-content ui-corner-all" style="width: 800px; height: 600px"></div>
 <div class="container">
   <div class="header">
     <h2>
