@@ -1,3 +1,4 @@
+require 'Date'
 require 'rubygems'
 require 'sinatra'
 require 'oauth2'
@@ -110,6 +111,42 @@ get '/' do
 
   puts "There are "+ @opportunities['records'].count.to_s + " Opportunity Edits"
 
+  resultset=[]
+
+  # Build an array of date, updater
+  @opportunities['records'].each do |opportunity|
+
+    resultset << [Date.strptime opportunity['CreatedDate'], "%Y-%m-%d", opportunity['CreatedBy']['Name']]
+
+  end
+  resultset.sort!
+
+  # Aggregate array to count all data entries for each date
+  @data=[]
+  lastdate=nil
+  count=0
+
+  resultset.each do | record |
+
+    if lastdate == nil
+      lastdate=record[0]
+    end
+
+    if lastdate <> record[0]
+      @data << [lastdate, count]
+      lastdate = record[0]
+      count = 1
+    else
+      count += 1
+    end
+
+  end
+
+  if @data.empty? || lastdate <>  resultset[-1][0]
+    @data << [lastdate, count]
+  end
+
+  # Send it to the web
   puts "Invoking Renderer"
   erb :index
 end
