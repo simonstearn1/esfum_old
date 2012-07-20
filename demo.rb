@@ -97,7 +97,7 @@ get '/' do
   start = Date.today() - 90
 
 #  query = "select Opportunity.Exony_Opportunity_ID__c, Opportunity.Name, StageName, Amount, CreatedDate, CreatedBy.Name from OpportunityHistory where Opportunity.Name = 'Bell - Bedrock Phase 1 (IBM CA)'"
-  query = "select Opportunity.Exony_Opportunity_ID__c, Opportunity.Name, StageName, Amount, CreatedDate, CreatedBy.Name from OpportunityHistory where CreatedDate > " + start.to_s +"T00:00:00Z order by CreatedDate"
+  query = "select Opportunity.Exony_Opportunity_ID__c, Opportunity.Name, StageName, Amount, CreatedDate, CreatedBy.Name from OpportunityHistory where CreatedDate > " + start.to_s + "T00:00:00Z order by CreatedDate"
   puts "Running query"
   @opportunities = @access_token.get("#{@instance_url}/services/data/v20.0/query/?q=#{CGI::escape(query)}").parsed
 
