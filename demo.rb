@@ -106,13 +106,11 @@ get '/' do
   # Build an array of date, updater
   @opportunities['records'].each do |opportunity|
 
-    puts "Considering :" + opportunity.to_s
     resultset.push [Date.strptime(opportunity["CreatedDate"], "%Y-%m-%d"), opportunity['CreatedBy']['Name']]
-    puts "I make it:" + resultset[-1].to_s + "<END>"
 
   end
   resultset.sort!
-
+  puts "We have:" + resultset.to_s + "<END>"
 
 
   # New approach
