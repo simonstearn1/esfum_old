@@ -133,7 +133,7 @@ get '/' do
       lastdate=record[0]
     end
 
-    if lastdate <> record[0]
+    if lastdate != record[0]
       @data << [lastdate, count]
       lastdate = record[0]
       count = 1
@@ -143,7 +143,7 @@ get '/' do
 
   end
 
-  if @data.empty? || lastdate <>  resultset[-1][0]
+  if @data.empty? || lastdate !=  resultset[-1][0]
     @data << [lastdate, count]
   end
 
