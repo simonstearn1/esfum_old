@@ -24,7 +24,7 @@
               showChartLabels: false,
               hint: {
                   content: function () {
-                      return this.y;
+                      return this.y.to_s + "on" + this.x.to_s;
                   },
                   offsetY: -10
               },
