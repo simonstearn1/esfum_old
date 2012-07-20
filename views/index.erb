@@ -60,20 +60,21 @@
 <div class="container">
   <div class="header">
     <h2>
-      Table as DataSource</h2>
+      Opportunity Edits</h2>
   </div>
   <div class="main demo">
     <!-- Begin main markup -->
     <table id="opportunitylist" border="1">
       <caption>
-        Opportunity Edits</caption>
+        Number of edits per day by user (Opportunities only)
+      </caption>
       <thead>
       <tr>
         <th>
-          Day
+          User
         </th>
         <th>
-          User
+          Day
         </th>
         <th>
           Edit Count
@@ -84,8 +85,8 @@
       <tbody>
       <% today = @earliest_date
          end_date = Date.new(Time.now.year, Time.now.month, Time.now.day)
-         while (today <= end_date)  do
-           @user_list.each do | user |
+         @user_list.each do | user |
+           while (today <= end_date)  do
              record = @data[[today, user]] %>
               <tr>
                 <th scope="row">
@@ -98,8 +99,8 @@
                   <%= record.to_s %>
                 </td>
               </tr>
-        <%   end
-           today += 1
+        <%   today += 1
+           end
          end %>
       </tbody>
     </table>
