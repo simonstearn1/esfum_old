@@ -56,12 +56,12 @@ before do
   if token && !@instance_url.nil?
     puts "There is a token "
     puts token.to_s
-    puts "errorCode == \"" + token["errorCode"].to_s + "\"" unless token["errorCode"].nil?
+    puts "errorCode == \"" + session["errorCode"].to_s + "\"" unless session["errorCode"].nil?
     @access_token = ForceToken.from_hash(oauth2_client, { :access_token => token, :refresh_token =>  refresh, :header_format => 'OAuth %s' } )
     puts "Moving on."
   else
     puts "No Token, or error !"
-    puts "errorCode == \"" + token["errorCode"].to_s + "\"" unless token["errorCode"].nil?
+    puts "errorCode == \"" + session["errorCode"].to_s + "\"" unless session["errorCode"].nil?
     puts "Setting redirect url to: https://#{request.host}/oauth/callback"
     redirect oauth2_client.auth_code.authorize_url(:redirect_uri => "https://#{request.host}/oauth/callback")
   end  
