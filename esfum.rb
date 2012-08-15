@@ -161,7 +161,6 @@ get '/' do
                 { "stroke" => "#990033", "stroke-width"=> 3, "opacity" => 0.8  },
                 { "stroke" => "#92CD00", "stroke-width"=> 3, "opacity" => 0.8  },
                 { "stroke" => "#FFCF79", "stroke-width"=> 3, "opacity" => 0.8  },
-                { "stroke" => "#E5E4D7", "stroke-width"=> 3, "opacity" => 0.8  },
                 { "stroke" => "#2C6700", "stroke-width"=> 3, "opacity" => 0.8  },
                 { "stroke" => "#6600CC", "stroke-width"=> 3, "opacity" => 0.8  },
                 { "stroke" => "#FFCC00", "stroke-width"=> 3, "opacity" => 0.8  },
