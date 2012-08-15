@@ -107,7 +107,12 @@
           $("#opportunitylist").wijgrid({
               allowSorting: true,
               allowPaging: true,
-              pageSize: 30
+              pageSize: 30,
+              columns: [
+                  {},
+                  { dataType: "datetime" },
+                  { dataType: "number" }
+              ]
           });
 
           });
@@ -178,7 +183,7 @@
           User
         </th>
         <th>
-          Day
+          Date
         </th>
         <th>
           Edit Count
