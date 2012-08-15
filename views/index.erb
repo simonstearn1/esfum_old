@@ -73,10 +73,10 @@
                      end %>
               ],
               seriesStyles: [
-                <%= @series_styles %>
+                <%= @series_styles.to_json %>
               ],
               seriesHoverStyles: [
-                <%= @series_hover %>
+                <%= @series_hover.to_json %>
               ],
               axis: {
                   y: {},
