@@ -177,8 +177,8 @@ get '/' do
     @series_hover = @series_hover +"{ \"stroke-width\": 4} " unless ind > (styles.count - 1)
   end
 
-  puts "Styles:" + @seriesStyles + "<END>"
-  puts "Hovers:" + @seriesHover + "<END>"
+  puts "Styles:" + @series_styles + "<END>"
+  puts "Hovers:" + @series_hover + "<END>"
 
   # Send it to the web
   puts "Invoking Renderer"
