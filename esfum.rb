@@ -154,18 +154,18 @@ get '/' do
   puts "Javascript date list:" + @date_list + "<END>"
 
   styles=[      { "stroke" => "#ff9900", "stroke-width"=> 3, "opacity" => 0.8 },
-                { "stroke" => "666633", "stroke-width"=> 3, "opacity" => 0.8  },
-                { "stroke" => "CCCC99", "stroke-width"=> 3, "opacity" => 0.8  },
-                { "stroke" => "FFFFFF", "stroke-width"=> 3, "opacity" => 0.8  },
-                { "stroke" => "990033", "stroke-width"=> 3, "opacity" => 0.8  },
-                { "stroke" => "92CD00", "stroke-width"=> 3, "opacity" => 0.8  },
-                { "stroke" => "FFCF79", "stroke-width"=> 3, "opacity" => 0.8  },
-                { "stroke" => "E5E4D7", "stroke-width"=> 3, "opacity" => 0.8  },
-                { "stroke" => "2C6700", "stroke-width"=> 3, "opacity" => 0.8  },
-                { "stroke" => "6600CC", "stroke-width"=> 3, "opacity" => 0.8  },
-                { "stroke" => "FFCC00", "stroke-width"=> 3, "opacity" => 0.8  },
-                { "stroke" => "000000", "stroke-width"=> 3, "opacity" => 0.8  },
-                { "stroke" => "CC0000", "stroke-width"=> 3, "opacity" => 0.8  }]
+                { "stroke" => "#666633", "stroke-width"=> 3, "opacity" => 0.8  },
+                { "stroke" => "#CCCC99", "stroke-width"=> 3, "opacity" => 0.8  },
+                { "stroke" => "#FFFFFF", "stroke-width"=> 3, "opacity" => 0.8  },
+                { "stroke" => "#990033", "stroke-width"=> 3, "opacity" => 0.8  },
+                { "stroke" => "#92CD00", "stroke-width"=> 3, "opacity" => 0.8  },
+                { "stroke" => "#FFCF79", "stroke-width"=> 3, "opacity" => 0.8  },
+                { "stroke" => "#E5E4D7", "stroke-width"=> 3, "opacity" => 0.8  },
+                { "stroke" => "#2C6700", "stroke-width"=> 3, "opacity" => 0.8  },
+                { "stroke" => "#6600CC", "stroke-width"=> 3, "opacity" => 0.8  },
+                { "stroke" => "#FFCC00", "stroke-width"=> 3, "opacity" => 0.8  },
+                { "stroke" => "#000000", "stroke-width"=> 3, "opacity" => 0.8  },
+                { "stroke" => "#CC0000", "stroke-width"=> 3, "opacity" => 0.8  }]
 
   @series_styles, @series_hover = "", ""
 
