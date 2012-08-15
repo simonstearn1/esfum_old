@@ -153,6 +153,38 @@ get '/' do
 
   puts "Javascript date list:" + @date_list + "<END>"
 
+  # May need to add something like this to graph:
+  #    seriesStyles: [
+  #    { stroke: "#ff9900", "stroke-width": 3 },
+  #    { stroke: "666633", "stroke-width": 3 },
+  #    { stroke: "CCCC99", "stroke-width": 3 },
+  #    { stroke: "FFFFFF", "stroke-width": 3 },
+  #    { stroke: "990033", "stroke-width": 3 },
+  #    { stroke: "92CD00", "stroke-width": 3 },
+  #    { stroke: "FFCF79", "stroke-width": 3 },
+  #    { stroke: "E5E4D7", "stroke-width": 3 },
+  #    { stroke: "2C6700", "stroke-width": 3 },
+  #    { stroke: "6600CC", "stroke-width": 3 },
+  #    { stroke: "FFCC00", "stroke-width": 3 },
+  #    { stroke: "000000", "stroke-width": 3 },
+  #    { stroke: "CC0000", "stroke-width": 3 }
+  #],
+  #    seriesHoverStyles: [
+  #    { "stroke-width": 4 },
+  #    { "stroke-width": 4 },
+  #    { "stroke-width": 4 },
+  #    { "stroke-width": 4 },
+  #    { "stroke-width": 4 },
+  #    { "stroke-width": 4 },
+  #    { "stroke-width": 4 },
+  #    { "stroke-width": 4 },
+  #    { "stroke-width": 4 },
+  #    { "stroke-width": 4 },
+  #    { "stroke-width": 4 },
+  #    { "stroke-width": 4 },
+  #    { "stroke-width": 4 }
+  #],
+
   # Send it to the web
   puts "Invoking Renderer"
   erb :index
