@@ -52,27 +52,24 @@
             <% end_date = Date.new(Time.now.year, Time.now.month, Time.now.day)
                @user_list.each do | user |     %>
                     <%= "," unless first_entry %>
-                  {
+                      {
                       label: "<%=user.to_s%>",
                       legendEntry: true,
                       data: {
                           x: [<%= @date_list %>],
-                          y: [
-                          <%  today = @earliest_date  %>
-                          <%= @data[[today, user]].to_s %>
-                          <%  today += 1
-                              while (today <= end_date)  do  %>
-                                  ,
-                            <%= @data[[today, user]].to_s %>
-                            <%  today += 1
+                          <%  today = @earliest_date
+                              data_list = @data[[today, user]].to_s
+                              today += 1
+                              while (today <= end_date)  do
+                               data_list = data_list + "," + @data[[today, user]].to_s
+                                today += 1
                               end           %>
-                                      ]
-                                  },
-                                  markers: {
-                                      visible: true,
-                                      type: "circle"
-                                  }
-                              }
+                          y: [ <%= data_list %> ]},
+                      markers: {
+                        visible: true,
+                        type: "circle"
+                        }
+                      }
 
                   <% first_entry = false
                      end %>
