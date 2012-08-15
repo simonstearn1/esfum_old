@@ -169,14 +169,14 @@ get '/' do
 
   @series_styles, @series_hover = "", ""
 
-  puts "Defining " + @user_list.count.to_s +" styles (there are " + styles.count.to_s + " styles defined)."
+  puts "Defining " + @user_list.count.to_s + " styles (there are " + styles.count.to_s + " styles defined)."
 
   @user_list.each_index do | ind |
-    @series_styles = @series_styles +", " unless ind == 0
-    @series_hover = @series_hover +", " unless ind == 0
+    @series_styles = @series_styles + ", " unless ind == 0
+    @series_hover = @series_hover + ", " unless ind == 0
 
     @series_styles = @series_styles + styles[ind].to_json unless ind > (styles.count - 1)
-    @series_hover = @series_hover +"{ \"stroke-width\": 4} " unless ind > (styles.count - 1)
+    @series_hover = @series_hover + "{ \"stroke-width\": 4} " unless ind > (styles.count - 1)
   end
 
   puts "Styles string:" + @series_styles + "<END>"
