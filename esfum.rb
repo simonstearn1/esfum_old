@@ -169,6 +169,8 @@ get '/' do
 
   @series_styles, @series_hover = "", ""
 
+  puts "Defining " + @user_list.count.to_s +" styles (there are " + styles.count.to_s + " styles defined)."
+
   @user_list.each_index do | ind |
     @series_styles = @series_styles +", " unless ind == 0
     @series_hover = @series_hover +", " unless ind == 0
@@ -177,8 +179,8 @@ get '/' do
     @series_hover = @series_hover +"{ \"stroke-width\": 4} " unless ind > (styles.count - 1)
   end
 
-  puts "Styles:" + @series_styles + "<END>"
-  puts "Hovers:" + @series_hover + "<END>"
+  puts "Styles string:" + @series_styles + "<END>"
+  puts "Hovers string:" + @series_hover + "<END>"
 
   # Send it to the web
   puts "Invoking Renderer"
