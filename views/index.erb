@@ -35,8 +35,7 @@
               showChartLabels: false,
               hint: {
                   content: function () {
-                      return this.data.lineSeries.label + '\n' +
-                              this.x + '\n' + this.y + '';
+                      return this.data.lineSeries.label + '\n' + this.x + '\n' + this.y + '';
                   },
                   contentStyle: {
                       "font-size": 10
@@ -47,7 +46,6 @@
                   text: "Opportunity Edits by User"
               },
           <% first_entry = true %>
-
               seriesList: [
             <% end_date = Date.new(Time.now.year, Time.now.month, Time.now.day)
                @user_list.each do | user |     %>
@@ -75,8 +73,7 @@
                      end %>
               ],
               axis: {
-                  y: {
-                  },
+                  y: {},
                   x: {
                       labels: {
                           style: {
@@ -94,7 +91,7 @@
 <div id="header" role="banner">
   <h1>Opportunity Edits</h1>
   <div id="header-controls">
-    <div id="theme-dropdown" visible=false>
+    <div id="theme-dropdown">
       <select id="themes">
         <optgroup label="Wijmo">
           <option value="themes/aristo/jquery-wijmo.css">Aristo</option>
@@ -137,7 +134,7 @@
   </div>
 </div>
 <div class="container">
-<div id="opportunityListChart" class="ui-widget ui-widget-content ui-corner-all" style="width: 800px; height: 600px"></div>
+<div id="opportunityListChart" class="ui-widget ui-widget-content ui-corner-all" style="width: 1000px; height: 600px"></div>
   <div class="header">
     <h2>Daily Summary Table</h2>
   </div>
