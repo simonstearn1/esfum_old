@@ -43,6 +43,10 @@
           $('#themes').change(function () {
               $("link[title='rocket-jqueryui']").attr("href", $(this).val());
           }).wijdropdown();
+          
+          $("#accordion").wijaccordion({ 
+                header: "h3"
+          }); 
 
           $("#opportunityListChart").wijlinechart({
               showChartLabels: false,
@@ -165,14 +169,14 @@
     </div>
   </div>
 </div>
-<div class="container">
-  <div id="offset" style="width: 1000px; height:60px"></div>
-  <div id="opportunityListChart" class="ui-widget ui-widget-content ui-corner-all" style="width: 1000px; height: 800px"></div>
-  <div class="header">
-    <h2>Daily Summary Table</h2>
+<div class="accordian">
+  <div>
+    <h3><a href="#">Chart</a></h3>
+    <div id="opportunityListChart" class="ui-widget ui-widget-content ui-corner-all" style="width: 1000px; height: 800px"></div>
   </div>
-  <div class="main demo">
-    <!-- Begin main markup -->
+  <div>
+    <h3><a href="#">Table</a></h3>
+    <div>
     <table id="opportunitylist" style="width: 1000px">
       <caption>
         Number of edits per day by user (Opportunities only)
@@ -213,15 +217,15 @@
          end %>
       </tbody>
     </table>
-    <!-- End  markup -->
   </div>
-  <div class="footer">
-    <p>
+</div>
+  
+<div class="footer">
+  <p>
       Data taken from salesforce.com at <%= DateTime.now().to_s %>. </p>
-  </div>
-</div >
-
-<a href="logout" id="logout">Logout</a>
-
+</div>
+<div class="logout">
+  <a href="logout" id="logout">Logout</a>
+</div>
 </body>
 </html>
