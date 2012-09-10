@@ -112,7 +112,7 @@
           $("#opportunitylist").wijgrid({
               allowSorting: true,
               allowPaging: true,
-              pageSize: 25,
+              pageSize: 26,
               columns: [
                   {},
                   { dataType: "datetime" },
@@ -227,7 +227,7 @@
       Data taken from salesforce.com at <%= DateTime.now().to_s %>. </p>
 </div>
 <div class="logout">
-  <a href="logout" id="logout">Click Here to Logout</a>
+Click Here to <a class="button ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" href="http://wijmo.com" role="button"><span class="ui-button-text">Logout</span></a>
 </div>
 </body>
 </html>
