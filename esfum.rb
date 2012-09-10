@@ -198,6 +198,7 @@ get '/logout' do
   session['access_token'] = nil
   session['instance_url'] = nil
   session['field_list'] = nil
+  @access_token = nil
   puts "Logged out"
   # Now give the user some feedback, loading the logout page into an iframe...
   erb :logout
