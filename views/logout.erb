@@ -6,7 +6,10 @@
     </head>
     <body>
 		<p>Logged out</p>
-		<p><a href="/">Login Again</a></p>
-		<iframe style="display:none;" src="<%= @logout_url %>"/>
+		
+		<div class="login">
+Click Here to <a class="button ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" href="/" role="button"><span class="ui-button-text">Login Again</span></a>
+</div>
+	<iframe style="display:none;" src="<%= @logout_url %>"/>
 	</body>
 </html>
